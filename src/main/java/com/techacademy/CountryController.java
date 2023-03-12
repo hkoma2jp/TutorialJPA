@@ -35,8 +35,6 @@ public class CountryController {
         Country country = code != null ? service.getCountry(code) : new Country();
         // Modelに登録
         model.addAttribute("country",country);
-        // 「一覧に戻る」用のページ識別子をModelに登録
-        model.addAttribute("id", "list");
         // country/detail.htmlに画面遷移
         return "country/detail";
     }
@@ -54,8 +52,6 @@ public class CountryController {
     // 削除画面
     @GetMapping(value = {"delete", "/delete/{code}/"})
     public String deleteCountryForm(@PathVariable(name = "code", required = false) String code, Model model) {
-        // 「一覧に戻る」用のページ識別子をModelに登録
-        model.addAttribute("id", "list");
         // country/delete.htmlに画面遷移
         return "country/delete";
     }
